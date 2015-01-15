@@ -88,7 +88,7 @@
                         where clause queries either directly through API, through JDBC driver,
                         or through Object Viewer in Visor DevOps Console.
                     -->
-                    <!--property name="defaultIndexFixedTyping" value="false"/-->
+                    <!--<property name="defaultIndexFixedTyping" value="false"/>-->
                 </bean>
             </list>
         </property>

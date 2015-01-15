@@ -125,6 +125,7 @@
         <property name="indexingSpi">
             <list>
                 <bean class="org.gridgain.grid.spi.indexing.h2.GridH2IndexingSpi">
+                    <property name="defaultIndexFixedTyping" value="false"/>
                     <property name="defaultIndexPrimitiveKey" value="true"/>
                 </bean>
             </list>
