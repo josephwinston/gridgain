@@ -252,7 +252,7 @@ class GridCacheContinuousQueryHandler<K, V> implements GridContinuousHandler {
 
     /** {@inheritDoc} */
     @Override public void onListenerRegistered(UUID routineId, GridKernalContext ctx) {
-        manager(ctx).iterate(internal, routineId);
+        manager(ctx).iterate(internal, routineId, keepPortable());
     }
 
     /** {@inheritDoc} */
@@ -409,14 +409,7 @@ class GridCacheContinuousQueryHandler<K, V> implements GridContinuousHandler {
     private GridCacheContext<K, V> cacheContext(GridKernalContext ctx) {
         assert ctx != null;
 
-        GridCacheAdapter<K, V> cache = ctx.cache().internalCache(cacheName);
-
-        GridCacheContext<K, V> cctx = cache.context();
-
-        if (keepPortable())
-            cctx.projectionPerCall(cache.<K, V>keepPortable0());
-
-        return cctx;
+        return ctx.cache().<K, V>internalCache(cacheName).context();
     }
 
     /**
