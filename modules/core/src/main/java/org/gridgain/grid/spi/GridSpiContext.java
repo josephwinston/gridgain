@@ -11,6 +11,7 @@ package org.gridgain.grid.spi;
 
 import org.gridgain.grid.*;
 import org.gridgain.grid.events.*;
+import org.gridgain.grid.kernal.*;
 import org.gridgain.grid.kernal.managers.communication.*;
 import org.gridgain.grid.kernal.managers.eventstorage.*;
 import org.gridgain.grid.security.*;
@@ -387,4 +388,9 @@ public interface GridSpiContext {
      */
     @Nullable public <T> T readValueFromOffheapAndSwap(@Nullable String spaceName, Object key,
         @Nullable ClassLoader ldr) throws GridException;
+
+    /**
+     * @return Performance suggestions object.
+     */
+    public GridPerformanceSuggestions performance();
 }

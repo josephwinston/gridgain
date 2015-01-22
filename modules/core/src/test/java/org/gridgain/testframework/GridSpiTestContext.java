@@ -11,6 +11,7 @@ package org.gridgain.testframework;
 
 import org.gridgain.grid.*;
 import org.gridgain.grid.events.*;
+import org.gridgain.grid.kernal.*;
 import org.gridgain.grid.kernal.managers.communication.*;
 import org.gridgain.grid.kernal.managers.eventstorage.*;
 import org.gridgain.grid.security.*;
@@ -502,6 +503,10 @@ public class GridSpiTestContext implements GridSpiContext {
     /** {@inheritDoc} */
     @Nullable @Override public <T> T readValueFromOffheapAndSwap(@Nullable String spaceName, Object key,
         @Nullable ClassLoader ldr) throws GridException {
+        return null;
+    }
+
+    @Override public GridPerformanceSuggestions performance() {
         return null;
     }
 

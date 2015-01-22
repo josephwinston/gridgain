@@ -502,6 +502,11 @@ public abstract class GridManagerAdapter<T extends GridSpi> implements GridManag
 
                         return new GridSpiException("Failed to execute SPI context method.", e);
                     }
+
+                    @Override public GridPerformanceSuggestions performance() {
+                        return ctx.performance();
+                    }
+
                 });
             }
             catch (GridSpiException e) {

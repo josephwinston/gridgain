@@ -11,6 +11,7 @@ package org.gridgain.grid.spi.indexing.h2;
 
 import org.gridgain.grid.*;
 import org.gridgain.grid.cache.query.*;
+import org.gridgain.grid.kernal.*;
 import org.gridgain.grid.logger.*;
 import org.gridgain.grid.marshaller.*;
 import org.gridgain.grid.resources.*;
@@ -533,6 +534,11 @@ public class GridH2IndexingSpi extends GridSpiAdapter implements GridIndexingSpi
 
         if (log.isDebugEnabled())
             log.debug("Context has been initialized.");
+
+        GridPerformanceSuggestions perf = spiCtx.performance();
+
+        if (isDefaultIndexFixedTyping())
+            perf.add("Ku-ku");
     }
 
     /** {@inheritDoc} */

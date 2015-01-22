@@ -721,5 +721,10 @@ public abstract class GridSpiAdapter implements GridSpi, GridSpiManagementMBean 
             @Nullable ClassLoader ldr) throws GridException {
             return null;
         }
+
+        /** {@inheritDoc} */
+        @Override public GridPerformanceSuggestions performance() {
+            return null;
+        }
     }
 }
