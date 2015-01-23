@@ -506,7 +506,8 @@ public class GridSpiTestContext implements GridSpiContext {
         return null;
     }
 
-    @Override public GridPerformanceSuggestions performance() {
+    /** {@inheritDoc} */
+    @Nullable @Override public GridPerformanceSuggestions performance() {
         return null;
     }
 

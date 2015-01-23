@@ -723,7 +723,7 @@ public abstract class GridSpiAdapter implements GridSpi, GridSpiManagementMBean 
         }
 
         /** {@inheritDoc} */
-        @Override public GridPerformanceSuggestions performance() {
+        @Nullable @Override public GridPerformanceSuggestions performance() {
             return null;
         }
     }

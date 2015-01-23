@@ -392,5 +392,5 @@ public interface GridSpiContext {
     /**
      * @return Performance suggestions object.
      */
-    public GridPerformanceSuggestions performance();
+    @Nullable public GridPerformanceSuggestions performance();
 }
