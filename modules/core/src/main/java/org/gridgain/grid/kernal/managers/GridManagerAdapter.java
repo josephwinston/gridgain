@@ -507,7 +507,6 @@ public abstract class GridManagerAdapter<T extends GridSpi> implements GridManag
                     @Nullable @Override public GridPerformanceSuggestions performance() {
                         return ctx.performance();
                     }
-
                 });
             }
             catch (GridSpiException e) {
