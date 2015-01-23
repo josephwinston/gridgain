@@ -537,9 +537,22 @@ public class GridH2IndexingSpi extends GridSpiAdapter implements GridIndexingSpi
 
         GridPerformanceSuggestions perf = spiCtx.performance();
 
-        if (perf != null && !isDefaultIndexFixedTyping())
-            perf.add("Enable default index fixed typing on GridH2IndexingSpi (remove 'defaultIndexFixedTyping' " +
-                "from configuration)");
+        assert perf != null;
+
+        boolean spaceIdxFixedTyping = true;
+
+        for (GridH2IndexingSpaceConfiguration c : spaceCfgs.values()) {
+            if (!c.isIndexFixedTyping()) {
+                spaceIdxFixedTyping = false;
+
+                break;
+            }
+        }
+
+        if (!isDefaultIndexFixedTyping() || !spaceIdxFixedTyping)
+            perf.add("Enable index fixed typing for GridH2IndexingSpi " +
+                "(consider setting 'defaultIndexFixedTyping' to 'true'" +
+                "or changing per space configuration).");
     }
 
     /** {@inheritDoc} */
