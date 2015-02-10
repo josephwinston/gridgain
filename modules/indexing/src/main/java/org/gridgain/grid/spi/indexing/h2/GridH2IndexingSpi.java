@@ -542,7 +542,7 @@ public class GridH2IndexingSpi extends GridSpiAdapter implements GridIndexingSpi
         boolean spaceIdxFixedTyping = true;
 
         for (GridH2IndexingSpaceConfiguration c : spaceCfgs.values()) {
-            if (!c.isIndexFixedTyping()) {
+            if (c != null && !c.isIndexFixedTyping()) {
                 spaceIdxFixedTyping = false;
 
                 break;
@@ -1765,12 +1765,12 @@ public class GridH2IndexingSpi extends GridSpiAdapter implements GridIndexingSpi
     public void setSpaceConfigurations(GridH2IndexingSpaceConfiguration... spaceCfgs) {
         Map<String , GridH2IndexingSpaceConfiguration> map = new HashMap<>();
 
-        for (GridH2IndexingSpaceConfiguration cfg : spaceCfgs) {
-            GridH2IndexingSpaceConfiguration old = map.put(cfg.getName(), cfg);
-
-            if (old != null)
-                throw new IllegalArgumentException("Space configured twice: " + cfg.getName());
-        }
+//        for (GridH2IndexingSpaceConfiguration cfg : spaceCfgs) {
+//            GridH2IndexingSpaceConfiguration old = map.put(cfg.getName(), cfg);
+//
+//            if (old != null)
+//                throw new IllegalArgumentException("Space configured twice: " + cfg.getName());
+//        }
 
         this.spaceCfgs = map;
     }
